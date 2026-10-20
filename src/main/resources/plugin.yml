@@ -1,0 +1,19 @@
+name: NexusGateWatch
+version: ${project.version}
+main: com.nexuscraft.nexusgatewatch.NexusGateWatchPlugin
+api-version: '1.21'
+author: RealSociety
+depend: [NexusGate]
+description: "Tells operators who logged in and which password or code they used (the shared Java or Bedrock password, or a specific invite, team or personal code). Live alerts plus /gatewatch whoisin and /gatewatch logins. A separate add-on: it only reads NexusGate's login log lines."
+
+commands:
+  gatewatch:
+    description: See who is logged in and what they used to get in.
+    usage: /gatewatch <whoisin|logins [player] [count]>
+    aliases: [whoisin, gwatch]
+    permission: nexusgate.watch
+
+permissions:
+  nexusgate.watch:
+    description: Receive login alerts and use /gatewatch. (Same permission NexusGate uses for its own alerts.)
+    default: op

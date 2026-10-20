@@ -1,0 +1,25 @@
+# NexusGateWatch -- who logged in, and which password or code they used.
+#
+# This reads NexusGate's own login log lines. It never sees, stores or shows what a player typed,
+# because NexusGate does not write that anywhere. For the shared Java/Bedrock passwords it says
+# WHICH password was used ("the Java server password"), not the text. For invite, team and personal
+# codes it shows the code, because that is what tells you who let them in.
+#
+# Alerts go to everyone with the permission nexusgate.watch (ops by default).
+
+alerts:
+  # A message the moment someone gets in, saying how.
+  on-login: true
+  # A message when someone joins without being asked for a password (exempt, or no password set
+  # for their platform), so those are never invisible.
+  on-no-password: true
+  # A message for each wrong password and for players who time out at the prompt.
+  on-failure: true
+  # Show the player's IP address in the alerts.
+  show-ip: true
+
+history:
+  # Where /gatewatch logins reads from (inside this plugin's folder). Tab-separated text.
+  file: logins.tsv
+  # How many recent events to keep in memory for /gatewatch logins.
+  size: 500
